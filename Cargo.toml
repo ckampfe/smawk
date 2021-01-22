@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 anyhow = "1.0"
+csv = "1.1"
 nom = "6.0"
 regex-syntax = "0.6"
 structopt = "0.3"

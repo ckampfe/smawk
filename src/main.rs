@@ -10,16 +10,16 @@ struct Options {
 fn main() -> Result<()> {
     let options = Options::from_args();
 
-    let program = "begin {} pattern {} literal {} end {}";
     // parse expression
     let program = smawk::parse_program(&options.program)?;
-    smawk::execute_program(&program)?;
-    // compile expression
-    // execute pre statements
-    // execute main loop
-    // execute post expressions
 
-    println!("Hello, world!");
+    let stdin = std::io::stdin();
+    let input = stdin.lock();
+
+    let stdout = std::io::stdout();
+    let output = stdout.lock();
+
+    smawk::execute_program(&program, input, output)?;
 
     Ok(())
 }
